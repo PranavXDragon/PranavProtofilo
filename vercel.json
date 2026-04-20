@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm install",
+  "outputDirectory": ".",
+  "env": {
+    "MONGODB_URI": "@mongodb_uri",
+    "PORT": "5000"
+  }
+}

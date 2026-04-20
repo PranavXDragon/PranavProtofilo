@@ -45,19 +45,19 @@ interface JourneyNode {
 /* ---------- Data (ordered) ---------- */
 const journey: JourneyNode[] = [
   {
-    id: 'mca',
-    title: 'MCA Graduate',
-    role: 'Master of Computer Applications',
-    period: '2018 - 2021',
+    id: 'btech',
+    title: 'B.Tech Studying',
+    role: 'Bachelor of Technology',
+    period: '2026 - Present',
     organization: 'University / Institute',
     summary:
-      'Solid foundations in algorithms, data structures, databases, operating systems, distributed systems, and software engineering through labs and projects.',
+      'Currently pursuing B.Tech with focus on Data Science, AI/ML, and modern computing technologies. Building strong foundations in algorithms, data structures, databases, and practical applications.',
     highlights: [
-      'Capstone project covering full SDLC',
-      'Multiple hackathons and coding competitions',
-      'Strong academic training in algorithms & DBMS'
+      'Specializing in AI/ML and Data Science',
+      'Working on deep learning and NLP projects',
+      'Building IoT and robotics applications'
     ],
-    tech: ['Java', 'Python', 'SQL', 'OOP', 'DSA', 'Git'],
+    tech: ['Python', 'SQL', 'Machine Learning', 'Deep Learning', 'NLP', 'IoT'],
     links: [{ label: 'Academic Projects', href: '#projects' }],
     accent: '#06b6d4', // cyan
     icon: GraduationCap
@@ -96,7 +96,7 @@ const journey: JourneyNode[] = [
     id: 'nlp',
     title: 'Deep Learning / NLP Engineer',
     role: 'LLMs • Transformers • RAG',
-    period: '2023 - Present',
+    period: '2023 - 2026',
     organization: 'TechKnots',
     summary:
       'Building GenAI & NLP systems: prompt engineering, fine-tuning, retrieval pipelines, scalable inference, and safety/monitoring.',
@@ -206,7 +206,7 @@ export default function Experience() {
             CAREER ROADMAP
           </h2>
           <p className="mono-font text-base opacity-80 mb-4">
-            A branching, retro-styled journey — <span className="text-cyan-400">MCA</span> →{' '}
+            A branching, retro-styled journey — <span className="text-cyan-400">B.Tech</span> →{' '}
             <span className="text-pink-400">Full Stack</span> →{' '}
             <span className="text-purple-400">NLP / GenAI</span> (TechKnots).
           </p>

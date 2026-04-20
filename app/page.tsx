@@ -18,14 +18,13 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-      <Projects />
       <Experience />
       <Contact />
       
       {/* Footer */}
       <footer className="text-center py-8 border-t border-current border-opacity-30">
         <div className="pixel-font text-xs opacity-70">
-          © 2025 ANNAMALAI.DEV - GAME OVER
+          © 2025 PRANAV NAVGHARE - GAME OVER
         </div>
         <div className="mono-font text-xs opacity-50 mt-2">
           Made with ❤️ and lots of ☕

@@ -17,13 +17,15 @@ export default function Contact() {
   const [display, setDisplay] = useState<string[]>(asciiArt);
   const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
   const [currentCommand, setCurrentCommand] = useState("");
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const contacts = [
-    { label: 'Email', value: 'annamalaikm@hotmail.com', command: 'mail' },
-    { label: 'GitHub', value: 'github.com/annamalai2912', command: 'git' },
-    { label: 'LinkedIn', value: 'linkedin.com/in/annamalai', command: 'link' },
-    { label: 'Phone', value: '+91 9345341879', command: 'num' },
-    { label: 'Twitter', value: 'twitter.com/annamalai', command: 'tweet' },
+    { label: 'Email', value: 'pranav.navghare@email.com', command: 'mail' },
+    { label: 'GitHub', value: 'github.com/pranav-navghare', command: 'git' },
+    { label: 'LinkedIn', value: 'linkedin.com/in/pranav-navghare', command: 'link' },
+    { label: 'Phone', value: '+91 9356671329', command: 'num' },
+    { label: 'Twitter', value: 'twitter.com/pranav-navghare', command: 'tweet' },
   ];
 
   const secretMessages = [
@@ -81,6 +83,40 @@ export default function Contact() {
     else window.open(`https://${contact.value}`, '_blank');
   };
 
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formData.name && formData.email && formData.message) {
+      try {
+        const response = await fetch('http://localhost:5000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          setFormSubmitted(true);
+          setFormData({ name: '', email: '', message: '' });
+          setTimeout(() => setFormSubmitted(false), 3000);
+        } else {
+          console.error('Error:', result.error);
+          alert('Failed to send message: ' + result.error);
+        }
+      } catch (error) {
+        console.error('Error sending message:', error);
+        alert('Error connecting to server. Please try again.');
+      }
+    }
+  };
+
   return (
     <section className="min-h-screen py-20 px-4 bg-black text-green-400 font-mono relative overflow-hidden">
       {/* Matrix Rain Background */}
@@ -129,6 +165,67 @@ export default function Contact() {
             </motion.div>
           ))}
         </div>
+
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="ascii-border p-6 bg-black bg-opacity-90 border border-green-500 mb-8"
+        >
+          <div className="mono-font text-sm text-green-500 mb-4">
+            &gt; SEND_MESSAGE.EXE
+          </div>
+          <form onSubmit={handleFormSubmit} className="space-y-4">
+            <div>
+              <label className="block text-green-500 text-xs mb-2">NAME:</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleFormChange}
+                placeholder="Enter your name"
+                className="w-full bg-black border border-green-500 text-green-400 px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-green-500 text-xs mb-2">EMAIL:</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleFormChange}
+                placeholder="your@email.com"
+                className="w-full bg-black border border-green-500 text-green-400 px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-green-500 text-xs mb-2">MESSAGE:</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleFormChange}
+                placeholder="Type your message..."
+                rows={4}
+                className="w-full bg-black border border-green-500 text-green-400 px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full px-4 py-2 border border-green-500 text-green-400 hover:bg-green-500 hover:text-black transition-all text-sm font-mono"
+            >
+              SEND &gt;
+            </button>
+          </form>
+          {formSubmitted && (
+            <div className="mt-4 text-green-500 text-sm text-center glow-text-green">
+              MESSAGE SENT! ✓
+            </div>
+          )}
+        </motion.div>
 
         {/* Current Command Footer */}
         <div className="border-t border-green-500 pt-4">

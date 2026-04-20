@@ -15,7 +15,7 @@ const vt323 = VT323({
 });
 
 export const metadata: Metadata = {
-  title: 'Annamalai • Retro Dev Portfolio',
+  title: 'Pranav Navghare • Retro Dev Portfolio',
   description: 'A retro pixel-art developer portfolio inspired by 8-bit games and terminals',
   keywords: 'developer, portfolio, retro, pixel art, 8-bit, programming',
 };

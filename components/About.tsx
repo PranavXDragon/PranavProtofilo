@@ -71,14 +71,12 @@ export default function About() {
                 >
                   <div className="pixel-border p-4 bg-emerald-500/10 inline-block mb-6">
                     <div className="w-48 h-48 mx-auto relative overflow-hidden">
-                      {profile?.avatar_url && (
-                        <img
-                          src={profile.avatar_url}
-                          alt={profile.name || 'Profile'}
-                          className="w-full h-full object-cover"
-                          style={{ imageRendering: 'pixelated' }}
-                        />
-                      )}
+                      <img
+                        src="/images/profile.jpg"
+                        alt={profile?.name || 'Profile'}
+                        className="w-full h-full object-cover"
+                        style={{ imageRendering: 'pixelated' }}
+                      />
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -115,7 +113,7 @@ export default function About() {
                     <div className="mono-font text-sm opacity-80">&gt; cat about.txt</div>
                     <div className="mono-font text-lg leading-relaxed text-emerald-100/90">
                       {profile?.bio ||
-                        'Full Stack Developer passionate about creating innovative solutions and building amazing user experiences with modern technologies.'}
+                        'As a Data Science student specializing in AI/ML, I am actively learning to build intelligent systems using deep learning, NLP, robotics, and IoT technologies.'}
                     </div>
                     <div className="pt-4 border-t border-emerald-400/40 opacity-80">
                       <div className="flex flex-wrap gap-4 text-sm mono-font text-emerald-200/80">
@@ -191,7 +189,7 @@ export default function About() {
                       </div>
                       <div className="ascii-border p-4 bg-black/30">
                         <div className="mono-font text-emerald-400 text-sm mb-2">✉️ CONTACT</div>
-                        <div className="text-emerald-300 text-sm">annamalaikm@hotmail.com</div>
+                        <div className="text-emerald-300 text-sm">pranav.navghare@email.com</div>
                       </div>
                     </div>
 
@@ -348,81 +346,28 @@ export default function About() {
                       </div>
                     </div>
 
-                    {/* GitHub Stats Placeholder */}
-                    <div className="mb-8">
-                      <h4 className="pixel-font text-lg glow-text-emerald mb-4">GITHUB_STATS.JSON</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div className="text-center ascii-border p-4 bg-black/20">
-                          <div className="text-emerald-400 text-lg font-bold">{profile?.public_repos || '25+'}</div>
-                          <div className="mono-font text-xs text-white">Repositories</div>
-                        </div>
-                        <div className="text-center ascii-border p-4 bg-black/20">
-                          <div className="text-emerald-400 text-lg font-bold">{profile?.followers || '50+'}</div>
-                          <div className="mono-font text-xs text-white">Followers</div>
-                        </div>
-                        <div className="text-center ascii-border p-4 bg-black/20">
-                          <div className="text-emerald-400 text-lg font-bold">500+</div>
-                          <div className="mono-font text-xs text-white">Commits</div>
-                        </div>
-                        <div className="text-center ascii-border p-4 bg-black/20">
-                          <div className="text-emerald-400 text-lg font-bold">1+</div>
-                          <div className="mono-font text-xs text-white">Years Exp</div>
-                        </div>
-                      </div>
-                    </div>
-
                     {/* Social Links */}
                     <div className="mb-8">
                       <h4 className="pixel-font text-lg glow-text-emerald mb-4">CONNECT.SOCIAL</h4>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <a href="https://github.com/annamalai2912" target="_blank" className="ascii-border p-3 bg-black/20 hover:bg-black/40 transition text-center">
+                        <a href="https://github.com/pranav-navghare" target="_blank" className="ascii-border p-3 bg-black/20 hover:bg-black/40 transition text-center">
                           <div className="text-lg mb-1">🐙</div>
                           <div className="mono-font text-xs text-emerald-400">GitHub</div>
                         </a>
-                        <a href="https://www.linkedin.com/in/annamalai-k-m-8293b72b2" target="_blank" className="ascii-border p-3 bg-black/20 hover:bg-black/40 transition text-center">
+                        <a href="https://www.linkedin.com/in/pranav-navghare" target="_blank" className="ascii-border p-3 bg-black/20 hover:bg-black/40 transition text-center">
                           <div className="text-lg mb-1">💼</div>
                           <div className="mono-font text-xs text-emerald-400">LinkedIn</div>
                         </a>
-                        <a href="https://www.x.com/@Urahaki137538" target="_blank" className="ascii-border p-3 bg-black/20 hover:bg-black/40 transition text-center">
+                        <a href="https://www.x.com/pranav-navghare" target="_blank" className="ascii-border p-3 bg-black/20 hover:bg-black/40 transition text-center">
                           <div className="text-lg mb-1">🐦</div>
                           <div className="mono-font text-xs text-emerald-400">Twitter</div>
                         </a>
-                        <a href="http://www.medium.com/@annamalai2912002" target="_blank" className="ascii-border p-3 bg-black/20 hover:bg-black/40 transition text-center">
+                        <a href="http://www.medium.com/@pranav-navghare" target="_blank" className="ascii-border p-3 bg-black/20 hover:bg-black/40 transition text-center">
                           <div className="text-lg mb-1">📝</div>
                           <div className="mono-font text-xs text-emerald-400">Medium</div>
                         </a>
                       </div>
                     </div>
-                    {/* Real-time GitHub Contribution Grid - Add this after GITHUB_STATS.JSON section */}
-<div className="mb-8">
-  <h4 className="pixel-font text-lg glow-text-emerald mb-4">CONTRIBUTION_GRAPH.GIT</h4>
-  <div className="ascii-border p-4 bg-black/20">
-    
-    {/* Terminal header */}
-    <div className="mono-font text-sm text-emerald-300/80 mb-4">
-      &gt; git log --graph --contributions --format=grid
-    </div>
-
-    {/* Real-time Contribution Grid (GitHub style squares) */}
-    <div className="text-center mb-4">
-      <img 
-        src="https://ghchart.rshah.org/10b981/annamalai2912"
-        alt="GitHub Contribution Grid"
-        className="w-full rounded border border-emerald-400/30 bg-black/30 p-2"
-        style={{
-          filter: 'invert(0) hue-rotate(0deg) brightness(1.2) contrast(1.1)',
-          imageRendering: 'pixelated'
-        }}
-      />
-    </div>
-
-
-    
-    
- 
-  </div>
-</div>
-
                     {/* Footer Quote */}
                     <div className="text-center pt-6 border-t border-emerald-400/30">
                       <div className="mono-font text-emerald-400 text-sm">

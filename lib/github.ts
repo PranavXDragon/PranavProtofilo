@@ -4,7 +4,7 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN, // Optional: for higher rate limits
 });
 
-const username = 'annamalai2912';
+const username = 'pranav-navghare';
 
 export interface GitHubUser {
   login: string;
@@ -47,10 +47,10 @@ export async function fetchGitHubProfile(): Promise<GitHubUser> {
     console.error('Error fetching GitHub profile:', error);
     // Fallback data
     return {
-      login: 'annamalai2912',
-      name: 'Annamalai',
-      bio: 'Full Stack Developer passionate about creating innovative solutions',
-      avatar_url: 'https://github.com/annamalai2912.png',
+      login: 'pranav-navghare',
+      name: 'Pranav Navghare',
+      bio: 'As a Data Science student specializing in AI/ML, I am actively learning to build intelligent systems using deep learning, NLP, robotics, and IoT technologies.',
+      avatar_url: 'https://github.com/pranav-navghare.png',
       followers: 0,
       following: 0,
       public_repos: 0,

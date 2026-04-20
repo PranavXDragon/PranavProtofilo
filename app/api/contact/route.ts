@@ -10,6 +10,10 @@ async function connectToDatabase() {
     return { client: cachedClient, db: cachedDb };
   }
 
+  if (!mongoUri) {
+    throw new Error('MONGODB_URI environment variable is not set');
+  }
+
   try {
     const client = new MongoClient(mongoUri, {
       useNewUrlParser: true,
